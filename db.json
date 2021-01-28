@@ -1,6 +1,5 @@
 {
-  "bg": "/bg1.jpg",
-  "bg2": "/space.jpg",
+  "bg": "/spacehdrFx.png",
   "title": "Interstellar",
   "description": "Teste os seus conhecimentos sobre uma das obras mais incríveis de Christopher Nolan.",
   "questions": [
