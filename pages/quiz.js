@@ -16,9 +16,6 @@ const Voltar = {
   fontWeight:"bolder",
   //padding:"10px",
   textDecoration:"none",
-
-
-
 };
 
 

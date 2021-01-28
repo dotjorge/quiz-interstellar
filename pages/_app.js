@@ -36,9 +36,12 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = db.theme;
 
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const {name} = router.query;
+
+  //const [theme, setTheme] = useState(db.themeDark);
 
   return (
     <>
