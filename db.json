@@ -1,7 +1,8 @@
 {
-  "bg": "https://i2.wp.com/css-tricks.com/wp-content/uploads/2017/06/css-is-awesome-scaled.jpg?resize=1536%2C1208&ssl=1",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "bg": "/bg1.jpg",
+  "bg2": "/space.jpg",
+  "title": "Interstellar",
+  "description": "Teste os seus conhecimentos sobre uma das obras mais incríveis de Christopher Nolan.",
   "questions": [
     {
       "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
@@ -32,12 +33,27 @@
   "theme": {
     "colors": {
       "primary": "#0d47a1",
-      "secondary": "#29b6f6",
-      "mainBg": "#171B35",
+      "secondary": "red",
+      "mainBg": "rgba(216,216,216,.2)",
       "contrastText": "#FFFFFF",
       "wrong": "#FF5722",
       "success": "#4CAF50"
     },
-    "borderRadius": "4px"
+    "Raio": "15px",
+    "Raio2": "10px",
+    "Blur": "8px"
+  },
+  "themeDark": {
+    "colors": {
+      "primary": "red",
+      "secondary": "red",
+      "mainBg": "red",
+      "contrastText": "#FFFFFF",
+      "wrong": "#FF5722",
+      "success": "#4CAF50"
+    },
+    "Raio": "15px",
+    "Blur": "8px"
   }
+  
 }

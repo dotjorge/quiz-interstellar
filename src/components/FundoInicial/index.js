@@ -1,12 +1,26 @@
-// src/components/QuizBackground/index.js
+// src/components/Tudo/index.js
 import styled from 'styled-components';
 
-const QuizBackground = styled.div`
+const FundoInicial = styled.div`
+  position:absolute;
   width: 100%;
+  height:100%;
+  transition:3s ease;
+  z-index:-1;
   background-size: cover;
   background-position: center;
   background-image: url(${({ backgroundImage }) => backgroundImage});
-  background-color: ${({ theme }) => theme.colors.mainBg};
+  //background-color: ${({ theme }) => theme.colors.mainBg};
+
+
+
+    background-size:cover;
+    //background-position:var(--mouseX) var(--mouseY);
+    background-image: url(${({ backgroundImage }) => backgroundImage});
+    background-repeat: no-repeat;
+
+    background-color: rgba(216,216,216,.5);
+
   flex: 1;
   @media screen and (max-width: 500px) {
     background-image: none;
@@ -33,4 +47,4 @@ const QuizBackground = styled.div`
   }
 `;
 
-export default QuizBackground;
+export default FundoInicial;

@@ -8,6 +8,10 @@ const Wrapper = styled.div`
   border: 0;
   right: 0;
   z-index: 20;
+
+   //Enquanto a troca de cor é via filtro
+   transition:filter .5s ease;
+   
 `;
 
 const SVGWrapper = styled.svg`
@@ -35,7 +39,7 @@ const SVGWrapper = styled.svg`
 // eslint-disable-next-line react/prop-types
 export default function GitHubCorner({ projectUrl }) {
   return (
-    <Wrapper>
+    <Wrapper className={'inverter'}>
       <a href={projectUrl} target="_blank" rel="noreferrer">
         <SVGWrapper className="githubCorner" width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
           <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z" />
