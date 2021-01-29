@@ -12,7 +12,7 @@ export const Botao=styled.button`
   letter-spacing:1px;
   cursor:pointer;
   font-weight:bold;
-  color:white;
+  color:rgba(255,255,255,.9);
   margin-top:10px;
 
 
@@ -24,7 +24,7 @@ export const Botao=styled.button`
     height:100%;
     box-shadow:-5px 5px 10px ${({ theme }) => theme.colors.secondary};
     opacity:.1;
-    border-radius:${({ theme }) => theme.Raio};
+    border-radius:10px;
     background:white;
     transition:.5s ease;
     

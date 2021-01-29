@@ -1,13 +1,21 @@
 import styled from 'styled-components'
 
 const Widget = styled.div`
+
+
   transition:2s ease;
   margin-top: 24px;
   margin-bottom: 24px;
   //border: 1px solid ${({ theme }) => theme.colors.primary};
-  background-color: ${({ theme }) => {
+  background-color:${({ theme }) => {
     return theme.colors.mainBg;
-  }};
+  }};;
+
+  &[data-widgetbg="invertido"] {
+    background-color: ${({ theme }) => theme.colors.mainBgInverso};
+  }
+
+
   backdrop-filter:blur(${({ theme }) => theme.Blur});
   border-radius: ${({ theme }) => theme.Raio};
   overflow: hidden;
@@ -23,10 +31,14 @@ const Widget = styled.div`
     align-items: center;
   }
   h1{
-    color:white;
+    color:rgba(255,255,255,.9);
+    &[data-h1="invertido"] {
+    color:rgba(0,0,0,.9);
+    }
   }
   h2{
     color:${({ theme }) => theme.colors.primary};
+
   }
   p {
     font-size: 14px;
@@ -42,6 +54,10 @@ Widget.Header = styled.header`
   //align-items: center;
   padding: 18px 32px;
   background-color: ${({ theme }) => theme.colors.primary};
+  &[data-h1bg="invertido"] {
+    background-color: ${({ theme }) => theme.colors.primaryInverso};
+  }
+
   margin:10px;
   margin-bottom:-10px;
 
