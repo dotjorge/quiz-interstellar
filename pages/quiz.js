@@ -5,7 +5,7 @@ import QuizContainer from '../src/components/QuizContainer'
 
 import WidgetInvertido from '../src/components/WidgetInvertido'
 
-import LoadWidget from '../src/components/LoadWidget'
+import LoadWidget from '../src/components/loadWidget'
 
 import AlternativesForm from '../src/components/AlternativesForm';
 import Botao from '../src/components/Botao'
