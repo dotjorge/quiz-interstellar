@@ -19,7 +19,7 @@ const Voltar = {
 };
 
 
-export default function telaQuiz(trocarTema) {
+export default function telaQuiz() {
     const router = useRouter();
     const {name} = router.query;
 
@@ -38,12 +38,15 @@ export default function telaQuiz(trocarTema) {
         document.getElementsByClassName('cooper')[0].style.opacity='0';
         document.getElementsByClassName('warp')[0].style.animationName='warp';
 
-        var  inverterElementos = document.getElementsByClassName('inverter');
-        var i;
-        for(i=0;i<inverterElementos.length;i++){
-            //inverterElementos[i].style.filter='invert(1)';
-            inverterElementos[i].classList.add("invertido");
-        }
+        setTimeout(function(){ 
+          var  inverterElementos = document.getElementsByClassName('inverter');
+          for(let i=0;i<inverterElementos.length;i++){
+              //inverterElementos[i].style.filter='invert(1)';
+              setTimeout(function(){ 
+                inverterElementos[i].classList.add("invertido");
+              }, 100);
+          }
+        }, 200);
     }, [])
 
     //Cor do nome
