@@ -21,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Lato', sans-serif;
     // Deixa branco no começo
     color: ${({ theme }) => theme.colors.contrastText};
-
     background-color:rgba(206, 221, 222,1);
   }
   html, body {
@@ -41,7 +40,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const {name} = router.query;
 
-  //const [theme, setTheme] = useState(db.themeDark);
+  //const [theme, setTheme] = useState(db.theme);
 
   return (
     <>
@@ -49,6 +48,7 @@ export default function App({ Component, pageProps }) {
       <title>{db.title}</title>
       <meta property="og:title" content={db.title} key="title"></meta>
       <meta property="og:image" content={db.bg} />
+      <link rel="shortcut icon" href={db.fav} />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
     </Head>
@@ -68,7 +68,7 @@ export default function App({ Component, pageProps }) {
 
     <style jsx global>{`
 
-      .temaDark {
+      .invertido {
         filter:invert(1);
       }
 

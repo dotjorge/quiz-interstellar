@@ -5,6 +5,8 @@ import QuizLogo from '../src/components/QuizLogo'
 import QuizContainer from '../src/components/QuizContainer'
 import Footer from '../src/components/Footer'
 
+import Botao from '../src/components/Botao'
+
 import React, { useState } from "react";
 import { useRouter } from 'next/router';
 
@@ -69,66 +71,10 @@ export const Entrada = styled.input`
   border-radius:${({ theme }) => theme.Raio2};
 `;
 
-export const Botao= styled.button`
-  display:block;
-  position:relative;
-  background:red;
-  width:100%;
-  height:40px;
-  border:none;
-  outline:none;
-  border-radius:${({ theme }) => theme.Raio2};
-  letter-spacing:1px;
-  cursor:pointer;
-  font-weight:bold;
-  color:white;
-  margin-top:10px;
-
-
-  &:after {
-    content:'';
-    position:absolute;
-    left:0;top:0;
-    width:100%;
-    height:100%;
-    box-shadow:-5px 5px 10px ${({ theme }) => theme.colors.secondary};
-    opacity:.1;
-    border-radius:${({ theme }) => theme.Raio};
-    background:white;
-    transition:.5s ease;
-    
-  }
-
-  &:before {
-    content:'>';
-    opacity:0;
-    margin-right:-10px;
-
-    transition:.2s ease;
-  }
-
-  &:hover:before{
-    opacity:.5;
-    margin-right:5px;
-  }
-
-  &:hover:after{
-    opacity:.2;
-  }
-
-
-  &:disabled{
-    opacity:.8;
-    pointer-events:none;
-  }
-
-
-`;
-
-
 
 export default function Home(trocarTema) {
   //const [trocarTema, tema] = useState("");
+
   const [placeHolder, placeHolderEstado] = useState("");
   const router = useRouter();
 
@@ -145,7 +91,8 @@ export default function Home(trocarTema) {
     var  inverterElementos = document.getElementsByClassName('inverter');
     var i;
     for(i=0;i<inverterElementos.length;i++){
-        inverterElementos[i].style.filter='invert(0)';
+        //inverterElementos[i].style.filter='invert(0)';
+        inverterElementos[i].classList.remove("invertido");
     }
   }, [])
 
@@ -165,7 +112,7 @@ export default function Home(trocarTema) {
             }}
             >
             <EntradaFx style={{color: placeHolder}}>
-            <Entrada onChange={function (infosDoEvento) {
+            <Entrada name="nomeUsuario" onChange={function (infosDoEvento) {
                   console.log(infosDoEvento.target.value);
                   setName(infosDoEvento.target.value);
                 }} onFocus={function(){
@@ -175,8 +122,7 @@ export default function Home(trocarTema) {
               console.log(isso.target.value.length);
             }}/>
             </EntradaFx>
-            <Botao onClick={function(){
-            }} disabled={name.length === 0}>Começar</Botao>
+            <Botao disabled={name.length === 0}>Começar</Botao>
             </form>
           </Widget.Content>
         </Widget>

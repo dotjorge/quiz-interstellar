@@ -41,7 +41,8 @@ export default function telaQuiz(trocarTema) {
         var  inverterElementos = document.getElementsByClassName('inverter');
         var i;
         for(i=0;i<inverterElementos.length;i++){
-            inverterElementos[i].style.filter='invert(1)';
+            //inverterElementos[i].style.filter='invert(1)';
+            inverterElementos[i].classList.add("invertido");
         }
     }, [])
 
