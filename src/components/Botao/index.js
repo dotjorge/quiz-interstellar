@@ -17,7 +17,7 @@ export const Botao=styled.button`
   font-weight:900;
 
 
-  color:rgba(255,255,255,.85);
+  color:rgba(255,255,255,.9);
   //color:${props => props.fundoWidget ? 'rgba(0,0,0,.9)' : ''};
   
 

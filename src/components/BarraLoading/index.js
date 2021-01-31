@@ -6,6 +6,7 @@ const BarraLoadingDiv = styled.div`
     width:100%;
     height:40px;
     border-radius:15px;
+    
 
     background-color:rgba(215,215,215,.1);
     &[data-loadcor="invertido"] {
@@ -24,6 +25,7 @@ const BarraLoadingDiv = styled.div`
 
     &[data-resultado="sim"] {
     animation-name:none;
+    border-radius:10px;
     //background-color:red;
     }
 
@@ -56,6 +58,7 @@ const BarraLoadingDivGlow = styled.div`
     }
 
     border-radius:15px;
+    border-radius:${props => props.raio};
     animation-name: load;
     animation-duration: 2s;
     animation-fill-mode:forwards; 
@@ -68,6 +71,7 @@ const BarraLoadingDivGlow = styled.div`
     &[data-resultado="sim"] {
     animation-name:none;
     transform:${props => props.porcentagem};
+    border-radius:10px;
     }
 
     @keyframes load {
@@ -101,12 +105,12 @@ const TextoPorcentagem = styled.div`
 
 `;
 
-export default function BarraLoading({dataTema,resultado,porcento,...props}){
+export default function BarraLoading({dataTema,resultado,porcento,raio,...props}){
     return(
     <>
     <BarraLoadingDiv data-resultado={resultado} data-loadcor={dataTema} style={{background:'none'}}>
-        <BarraLoadingDiv data-resultado={resultado} data-loadcor={dataTema} style={{overflow:'hidden'}}>
-            <BarraLoadingDivGlow data-resultado={resultado} porcentagem={'translateX(calc('+porcento+'% - 100% - 1px))'} data-loadcor={dataTema} style={{position:"absolute"}} />
+        <BarraLoadingDiv raio={raio} data-resultado={resultado} data-loadcor={dataTema} style={{overflow:'hidden'}}>
+            <BarraLoadingDivGlow raio={raio} data-resultado={resultado} porcentagem={'translateX(calc('+porcento+'% - 100% - 1px))'} data-loadcor={dataTema} style={{position:"absolute"}} />
         </BarraLoadingDiv>
         <TextoPorcentagem data-resultado={resultado} data-loadcor={dataTema}>{porcento}%</TextoPorcentagem>
     </BarraLoadingDiv>

@@ -33,12 +33,55 @@ Logo.propTypes = {
   className: PropTypes.string.isRequired,
 };
 
-const QuizLogo = styled(Logo)`
+const QuizLogoDiv = styled(Logo)`
   margin: auto;
   display: block;
   @media screen and (max-width: 500px) {
     margin: 0;
   }
+  position:relative;
+
+  opacity:.85;
 `;
 
-export default QuizLogo;
+
+const QuizLogoTitulo = styled.div`
+  margin: auto;
+  display: block;
+  position:relative;
+  text-align:center;
+  color:${({ theme }) => theme.colors.primary};
+  opacity:0;
+  animation-name: anim;
+  animation-duration: 1s;
+  animation-fill-mode:forwards; 
+  animation-iteration-count:1;
+  //animation-timing-function: cubic-bezier(0.24, 0.15, 1, 0.24);
+  animation-timing-function: linear;
+  animation-delay:2s;
+
+  &:before{
+    content:${props => props.Titulo};
+    
+  }
+
+  @keyframes anim{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+  }
+`;
+
+
+export default function QuizLogo({Titulo,children,  ...props}){
+  return(
+  <>
+    <QuizLogoDiv Titulo={Titulo} {...props}>
+    </QuizLogoDiv>
+    <QuizLogoTitulo Titulo={Titulo} {...props}>{children}</QuizLogoTitulo>
+  </>
+  );
+};

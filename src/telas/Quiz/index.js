@@ -65,7 +65,7 @@ function QuizResultado({ results, importarQuestoesDe }) {
     <Widget>
       <Widget.Header>
         {/*Por algum motivo tava dando um erro*/}
-        <h1><h3>&#9776;</h3>Seu resultado</h1>
+        <h1><h3>&#9776;</h3><b>Seu resultado</b></h1>
       </Widget.Header>
 
       <Widget.Content>
@@ -183,16 +183,37 @@ function QuizCorpo({
           <Link href="/">
               <a>&#x3c;</a>
           </Link>
-          {`Pergunta ${questionIndex + 1}`}
+          <b>{`Pergunta `}{questionIndex + 1}</b>
           <i>/{totalQuestions}</i>
       </h1>
     </Widget.Header>
     <Widget.Content>
-      <h2 data-externo={'sim'}>
+      <div style={{display:'flex',alignItems:'center',marginBottom:'8px'}}>
+    <img
+        alt={question.description}
+        style={{
+          width: '70px',
+          height: '70px',
+          objectFit: 'cover',
+          marginRight:'10px',
+          borderRadius:'10px',
+          opacity:'.8',
+        }}
+        src={question.image}
+      />
+      <span style={{
+    display: 'flex',
+    minHeight: '70px',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    wordBreak: 'break-word',
+      }}>
+      <h2 style={{marginTop:'-2px'}} data-externo={'sim'}>
         {question.title}
       </h2>
-      <p data-externo={'sim'}>{question.description}</p>
-
+      <p style={{marginBottom:'0px'}}data-externo={'sim'}>"{question.description}"</p>
+      </span>
+      </div>
       <AlternativesForm
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
@@ -235,6 +256,7 @@ function QuizCorpo({
             {JSON.stringify(question, null, 4)}
           </pre> */}
           <Botao 
+          style={{marginTop:'8px'}}
           fundoWidget={fundoWidget}
           type="submit" data-seta={estadoSeta} disabled={!hasAlternativeSelected}>
             Confirmar
@@ -253,7 +275,7 @@ function QuizCorpo({
 
 
 
-export default function telaQuiz({ importarQuestoesDe, bgExterno,...props}) {
+export default function telaQuiz({ importarQuestoesDe, bgExterno,tituloQuiz,...props}) {
   
   //Troca a tela
   const estadosTela = {
@@ -290,6 +312,16 @@ export default function telaQuiz({ importarQuestoesDe, bgExterno,...props}) {
       document.getElementsByClassName('cooper')[0].style.opacity='0';
       document.getElementsByClassName('warp')[0].style.animationName='warp';
 
+      //Inverter github e footer
+      setTimeout(function(){ 
+        var  inverterElementos = document.getElementsByClassName('inverter');
+        for(let i=0;i<inverterElementos.length;i++){
+            //inverterElementos[i].style.filter='invert(1)';
+            setTimeout(function(){ 
+              inverterElementos[i].classList.add("invertido");
+            }, 100);
+        }
+      }, 200);
 
   }, [])
 
@@ -335,7 +367,7 @@ export default function telaQuiz({ importarQuestoesDe, bgExterno,...props}) {
       {bgExterno !== 'não' &&       <div id={'bgExterno'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',background:'pink',backgroundImage:'url('+bgExterno+')',backgroundSize:'cover',backgroundPosition:'center',opacity:'.4',zIndex:'-1'}}></div>}
 
 
-        <QuizLogo />
+      <QuizLogo>{tituloQuiz}</QuizLogo>
 
         {estadoTela === 'QUIZ' && (
         <QuizCorpo
@@ -350,7 +382,7 @@ export default function telaQuiz({ importarQuestoesDe, bgExterno,...props}) {
 
 
 
-        {estadoTela === 'LOADING' && <LoadWidget classes={'inverter'}/>}
+        {estadoTela === 'LOADING' && <LoadWidget/>}
         {estadoTela === 'loadingInvertido' && <LoadWidget tema={'invertido'}/>}
         
         {estadoTela === 'RESULT' && <QuizResultado results={results} importarQuestoesDe={importarQuestoesDe} />}

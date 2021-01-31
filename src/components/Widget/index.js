@@ -26,18 +26,23 @@ const WidgetFundo = styled.div`
     align-items: center;
   }
   h1{
-    color:rgba(255,255,255,.9);
-    &[data-externo="sim"]{
-      color:rgba(255,255,255,.9);
-    }
+    color:${({ theme }) => theme.colors.secondary};
+    font-size:26px;
+
+    //&[data-externo="sim"]{
+    //  color:rgba(255,255,255,.9);
+    //}
     	
     opacity:.9;
     font-weight:900;
 
     i{
-      color:rgba(0,0,0,.5);
+      color:${({ theme }) => theme.colors.secondary};
+      opacity:.8;
     }
-
+    b{
+      color:white;
+    }
     a{
     color:${({ theme }) => theme.colors.secondary};
     margin-left:-10px;
@@ -98,7 +103,7 @@ Widget.Header = styled.header`
   //justify-content: flex-start;
   //align-items: center;
   padding: 18px 32px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  //background-color: ${({ theme }) => theme.colors.primary};
   &[data-h1bg="invertido"] {
     background-color: ${({ theme }) => theme.colors.primaryInverso};
   }
@@ -150,9 +155,9 @@ Widget.Topic = styled.a`
   margin-bottom: 8px;
   cursor: pointer;
   border-radius: ${({ theme }) => theme.Raio};
+
   transition: .2s;
   display: flex;
-
   align-items:center;
   position:relative;
 
@@ -197,7 +202,7 @@ Widget.Topic = styled.a`
 
 Widget.Loading = styled.div`
     position:relative;
-    width:30px;
+    width:35px;
     margin-left:-10px;
     display:flex;
     align-items:center;

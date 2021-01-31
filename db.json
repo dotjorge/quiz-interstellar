@@ -2,10 +2,10 @@
   "bg": "/thumb.jpg",
   "fav": "/icone.png",
   "title": "Interstellar",
-  "description": "Teste os seus conhecimentos sobre uma das obras mais incríveis de Christopher Nolan.",
+  "description": "Teste o seu entendimento sobre uma das obras mais incríveis de Christopher Nolan.",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
+      "image": "/1.png",
       "title": "Qual o apelido dado ao buraco negro?",
       "description": "Nem a luz pode escapar",
       "answer": 2,
@@ -15,7 +15,140 @@
         "Gargantua",
         "Sagittarius A*"
       ]
+    },
+    {
+      "image": "/2.jpg",
+      "title": "Nas condições do mundo no filme, ele precisava muito mais de:",
+      "description": "A maior necessidade do momento",
+      "answer": 1,
+      "alternatives": [
+        "Engenheiros",
+        "Fazendeiros",
+        "Astrofísicos",
+        "Pilotos"
+      ]
+    },
+    {
+      "image": "/3.jpg",
+      "title": "O que era o fantasma que a Murphy notava?",
+      "description": "Código Morse",
+      "answer": 0,
+      "alternatives": [
+        "O próprio pai",
+        "Seres de uma quinta dimensão",
+        "Ser sobrenatural",
+        "A propria Murphy"
+      ]
+    },
+    {
+      "image": "",
+      "title": "Para Cooper, a lei de Murphy significava que:",
+      "description": "Também nome de sua filha",
+      "answer": 0,
+      "alternatives": [
+        "Tudo que pode acontecer, vai acontecer",
+        "Tudo que pode dar errado, dará",
+        "Tudo vai ficar bem",
+        "Tudo já aconteceu"
+      ]
+    },
+    {
+      "image": "",
+      "title": "O que ainda restava para ser plantado?",
+      "description": "Tudo morria por pragas e pela tempestade de areia",
+      "answer": 3,
+      "alternatives": [
+        "Trigo",
+        "Quiabo",
+        "Batata",
+        "Milho"
+      ]
+    },
+    {
+      "image": "",
+      "title": "Cooper alterou o nível de sinceridade de TARS de 90% para:",
+      "description": "Sinceridade absoluta nem sempre é o mais diplomático",
+      "answer": 2,
+      "alternatives": [
+        "85%",
+        "100%",
+        "95%",
+        "80%"
+      ]
+    },
+    {
+      "image": "",
+      "title": "O professor John Brand mentiu porque:",
+      "description": "A resposta estava na equação da gravidade",
+      "answer": 1,
+      "alternatives": [
+        "Só o plano A funcionava",
+        "Só o plano B funcionava",
+        "Ambos os planos funcionavam",
+        "Nenhum plano funcionava"
+      ]
+    },
+    {
+      "image": "",
+      "title": "Sobra o planeta de Dr. Mann, é correto afirmar que:",
+      "description": "O segundo planeta promissor",
+      "answer": 2,
+      "alternatives": [
+        "A água não era alcalina",
+        "O ar não tinha amonia demais",
+        "Não havia superficie",
+        "Nenhuma das alternativas"
+      ]
+    },
+    {
+      "image": "",
+      "title": "O Planeta Miller tinha ondas gigantes porque:",
+      "description": "23 anos, 4 meses e 8 dias se passaram",
+      "answer": 3,
+      "alternatives": [
+        "O tempo lá passava mais lento",
+        "Tinha uma rotação acelerada",
+        "Tinha muita água",
+        "Ficava perto de Gargantua"
+      ]
+    },
+    {
+      "image": "",
+      "title": "Uma hora no planeta Miller equivalia a quantos anos na Terra?",
+      "description": "A gravidade desacelerando o tempo",
+      "answer": 2,
+      "alternatives": [
+        "1 ano",
+        "2 anos",
+        "7 anos",
+        "20 anos"
+      ]
+    },
+    {
+      "image": "",
+      "title": "O buraco de minhoca levou eles para:",
+      "description": "Um atalho de duas dimensões que dobra o espaço",
+      "answer": 0,
+      "alternatives": [
+        "Outra galáxia",
+        "Outra dimensão",
+        "Outro sistema solar",
+        "Um universo paralelo"
+      ]
+    },
+    {
+      "image": "",
+      "title": "Quem construiu o hipercubo?",
+      "description": "A gravidade pode se mover no tempo",
+      "answer": 1,
+      "alternatives": [
+        "Murphy",
+        "A própria humanidade",
+        "Seres sobrenaturais",
+        "Cooper"
+      ]
     }
+    
   ],
   "external": [
     "https://aluraquiz-css.omariosouto.vercel.app/",
@@ -30,8 +163,8 @@
       "wrong": "#FF5722",
       "success": "#4CAF50"
     },
-    "Raio": "15px",
-    "Raio2": "10px",
+    "Raio": "8px",
+    "Raio2": "8px",
     "Blur": "8px"
   },
   "invertedTheme": {
@@ -43,7 +176,7 @@
       "wrong": "#FF5722",
       "success": "#4CAF50"
     },
-    "Raio": "15px",
+    "Raio": "8px",
     "Blur": "8px"
   }
   

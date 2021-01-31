@@ -10,7 +10,7 @@ export default function loadWidget({classes,tema,style}){
             <Widget.Header data-h1bg={tema}>
                 <h1 data-h1={tema}>
                 <Widget.Loading />
-                    Carregando...
+                    <b>Carregando...</b>
                 </h1>
             </Widget.Header>
             <Widget.Content>

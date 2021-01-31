@@ -13,6 +13,7 @@ export default function Quiz({ }) {
           importarQuestoesDe={db.questions}
           bgExterno={'não'}
           fundoWidget={'rgba(39,39,39,.2)'}
+          tituloQuiz={db.title}
         />
       </ThemeProvider>
       // {/* <pre style={{ color: 'black' }}>

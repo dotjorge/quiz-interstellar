@@ -2,15 +2,17 @@ import React from 'react';
 import QuizScreen from '../../src/telas/Quiz';
 import { ThemeProvider } from 'styled-components';
 
-export default function QuizDaGaleraPage({ dbExterno }) {
+export default function QuizDaGaleraPage({ dbExterno,projectName }) {
     // const [db, setDb] React.useState({})
     // React.useEffect(() => {
     // });
+
     return (
       <ThemeProvider theme={dbExterno.theme}>
         <QuizScreen
           importarQuestoesDe={dbExterno.questions}
           bgExterno={dbExterno.bg}
+          tituloQuiz={projectName}
         />
       </ThemeProvider>
       // {/* <pre style={{ color: 'black' }}>
@@ -42,6 +44,7 @@ export async function getServerSideProps(context) {
       return {
         props: {
           dbExterno,
+          projectName,
         },
       };
     } catch(err) {

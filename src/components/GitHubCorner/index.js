@@ -11,6 +11,8 @@ const Wrapper = styled.div`
 
    //Enquanto a troca de cor é via filtro
    transition:filter .5s ease;
+
+   opacity:.8;
    
 `;
 

@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
     <Head>
-      <title>{db.title}</title>
+      <title>{db.title} - AluraQuiz</title>
       <meta property="og:title" content={db.title} key="title"></meta>
       <meta property="og:image" content={db.bg} />
       <link rel="shortcut icon" href={db.fav} />
