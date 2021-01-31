@@ -31,7 +31,7 @@ const WidgetFundo = styled.div`
       color:rgba(255,255,255,.9);
     }
     	
-    opacity:.85;
+    opacity:.9;
     font-weight:900;
 
     i{

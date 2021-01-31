@@ -99,7 +99,7 @@ export default function Home(trocarTema) {
                       data-quiz={'externo'}
                       data-disabled={name.length === 0}
                       as={Link}
-                      href={`/quiz/${projectName}___${githubUser}?name=${name}?quizAtual=${projectName}___${githubUser}`}
+                      href={`/quiz/${projectName}___${githubUser}?name=${name}`}
                     >
                       {`${githubUser}/${projectName}`}
                     </Widget.Topic>
