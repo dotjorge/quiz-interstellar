@@ -1,22 +1,22 @@
 import React from 'react';
-import db from '../db.json';
-import QuizLogo from '../src/components/QuizLogo'
-import QuizContainer from '../src/components/QuizContainer'
+//import db from '../../db.json';
+import QuizLogo from '../../components/QuizLogo'
+import QuizContainer from '../../components/QuizContainer'
 
-import WidgetInvertido from '../src/components/WidgetInvertido'
+import Widget from '../../components/Widget'
 
-import LoadWidget from '../src/components/loadWidget'
+import LoadWidget from '../../components/loadWidget'
 
-import AlternativesForm from '../src/components/AlternativesForm';
-import Botao from '../src/components/Botao'
+import AlternativesForm from '../../components/AlternativesForm';
+import Botao from '../../components/Botao'
 
-import Footer from '../src/components/Footer'
-import styled, { ThemeConsumer } from 'styled-components'
+import Footer from '../../components/Footer'
+import styled from 'styled-components'
 import { useRouter } from 'next/router';
 import Link from 'next/link'
 
 
-import BarraLoading from '../src/components/BarraLoading'
+import BarraLoading from '../../components/BarraLoading'
 
 export const ResultadoOverlay = styled.div`
   position:absolute;
@@ -55,19 +55,19 @@ export const ResultadoOverlay = styled.div`
 
 `;
 
-function QuizResultado({ results }) {
+function QuizResultado({ results, importarQuestoesDe }) {
   const router = useRouter();
   const {name} = router.query;
 
 
   return (
-    <WidgetInvertido>
-      <WidgetInvertido.Header>
+    <Widget>
+      <Widget.Header>
         <h1>Seu resultado</h1>
-      </WidgetInvertido.Header>
+      </Widget.Header>
 
-      <WidgetInvertido.Content>
-        <p>
+      <Widget.Content>
+        <p data-externo={'sim'}>
 
             {/* {results.reduce((somatoriaAtual, resultAtual) => {
               const isAcerto = resultAtual === true;
@@ -93,7 +93,7 @@ function QuizResultado({ results }) {
             }
 
             {
-            results.filter((x) => x).length  > 1 && results.filter((x) => x).length  != db.questions.length
+            results.filter((x) => x).length  > 1 && results.filter((x) => x).length  != importarQuestoesDe.length
             ?
             (<><b>{name}</b>, você acertou {results.filter((x) => x).length} perguntas</>)
             : 
@@ -101,7 +101,7 @@ function QuizResultado({ results }) {
             }
 
             {
-            results.filter((x) => x).length === db.questions.length
+            results.filter((x) => x).length === importarQuestoesDe.length
             ?
             (<><b>{name}</b>, você acertou todas as {results.filter((x) => x).length} perguntas!</>)
             : 
@@ -116,7 +116,7 @@ function QuizResultado({ results }) {
                 <span style={{width:'100%',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>
                 {index + 1}
                 {'. '}
-                {db.questions[index].title}
+                {importarQuestoesDe[index].title}
                 </span>
                 {result === true
                   ? (<span style={{color:"green"}}>{' '}✓</span>)
@@ -126,8 +126,8 @@ function QuizResultado({ results }) {
             ))}
 
           </ul>
-      </WidgetInvertido.Content>
-    </WidgetInvertido>
+      </Widget.Content>
+    </Widget>
   );
 }
 
@@ -151,23 +151,22 @@ function QuizCorpo({
 
   const [estadoSeta, permanecerSeta] = React.useState('Sim');
   return (
-    <WidgetInvertido>
-    <WidgetInvertido.Header>
-      <h1>
+    <Widget>
+    <Widget.Header>
+      <h1 data-externo={'sim'}>
           <Link href="/">
               <a style={Voltar}>&#x3c;</a>
           </Link>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
       </h1>
-    </WidgetInvertido.Header>
-    <WidgetInvertido.Content>
-      <h2>
+    </Widget.Header>
+    <Widget.Content>
+      <h2 data-externo={'sim'}>
         {question.title}
       </h2>
-      <p>{question.description}</p>
+      <p data-externo={'sim'}>{question.description}</p>
 
       <AlternativesForm
-          corFundo={db.theme.colors.primaryInverso}
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
             setIsQuestionSubmited(true);
@@ -184,12 +183,13 @@ function QuizCorpo({
             const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
             const isSelected = selectedAlternative === alternativeIndex;
             return (
-              <WidgetInvertido.Topic
+              <Widget.Topic
                 as="label"
                 key={alternativeId}
                 htmlFor={alternativeId}
                 data-selected={isSelected}
                 data-status={isQuestionSubmited && alternativeStatus}
+                data-externo={'sim'}
               >
                 <input
                   style={{ display: 'none' }}
@@ -200,7 +200,7 @@ function QuizCorpo({
                   type="radio"
                 />
                 {alternative}
-              </WidgetInvertido.Topic>
+              </Widget.Topic>
             );
           })}
 
@@ -214,10 +214,10 @@ function QuizCorpo({
 
         </AlternativesForm>
 
-    </WidgetInvertido.Content>
+    </Widget.Content>
     {isQuestionSubmited && isCorrect && <ResultadoOverlay data-result={'acertou'}  data-simbolo={'✓'} />}
     {isQuestionSubmited && !isCorrect && <ResultadoOverlay data-result={'errou'} data-simbolo={'✕'} />}
-  </WidgetInvertido>
+  </Widget>
   );
 }
 
@@ -233,7 +233,7 @@ const Voltar = {
 
 
 
-export default function telaQuiz() {
+export default function telaQuiz({ importarQuestoesDe, bgExterno}) {
   
   //Troca a tela
   const estadosTela = {
@@ -270,25 +270,18 @@ export default function telaQuiz() {
       document.getElementsByClassName('cooper')[0].style.opacity='0';
       document.getElementsByClassName('warp')[0].style.animationName='warp';
 
-      setTimeout(function(){ 
-        var  inverterElementos = document.getElementsByClassName('inverter');
-        for(let i=0;i<inverterElementos.length;i++){
-            //inverterElementos[i].style.filter='invert(1)';
-            setTimeout(function(){ 
-              inverterElementos[i].classList.add("invertido");
-            }, 100);
-        }
-      }, 200);
+
   }, [])
 
 
 
   //Questoes e resutlado
   const [results, setResults] = React.useState([]);
-  const totalQuestions = db.questions.length;
+
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;
-  const question = db.questions[questionIndex];
+  const question = importarQuestoesDe[questionIndex];
+  const totalQuestions = importarQuestoesDe.length;
 
   //Somar resultados
   function addResult(result) {
@@ -317,8 +310,10 @@ export default function telaQuiz() {
 
   return (
     <>
-
+    
       <QuizContainer>
+      <div id={'bgExterno'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',background:'pink',backgroundImage:'url('+bgExterno+')',backgroundSize:'cover',backgroundPosition:'center',opacity:'.4',zIndex:'-1'}}></div>
+
         <QuizLogo />
 
         {estadoTela === 'QUIZ' && (
@@ -336,7 +331,7 @@ export default function telaQuiz() {
         {estadoTela === 'LOADING' && <LoadWidget classes={'inverter'}/>}
         {estadoTela === 'loadingInvertido' && <LoadWidget tema={'invertido'}/>}
         
-        {estadoTela === 'RESULT' && <QuizResultado results={results} />}
+        {estadoTela === 'RESULT' && <QuizResultado results={results} importarQuestoesDe={importarQuestoesDe} />}
 
 
         <Footer />

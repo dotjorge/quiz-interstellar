@@ -11,7 +11,7 @@ const FooterWrapper = styled.footer`
   //Enquanto a troca de cor é via filtro
   transition:filter .5s ease;
 
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;

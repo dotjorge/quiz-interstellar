@@ -6,10 +6,10 @@ const Widget = styled.div`
   transition:2s ease;
   margin-top: 24px;
   margin-bottom: 24px;
-  //border: 1px solid ${({ theme }) => theme.colors.primary};
-  background-color:${({ theme }) => {
-    return theme.colors.mainBg;
-  }};;
+
+  background-color: ${({ theme }) => theme.colors.mainBg}bd;
+
+
 
   &[data-widgetbg="invertido"] {
     background-color: ${({ theme }) => theme.colors.mainBgInverso};
@@ -26,25 +26,33 @@ const Widget = styled.div`
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0;
-
     display: flex;
     align-items: center;
   }
   h1{
     color:rgba(255,255,255,.9);
-    &[data-h1="invertido"] {
-    color:rgba(0,0,0,.9);
+    &[data-externo="sim"]{
+    color:rgba(10,10,10,.9);
     }
   }
   h2{
     color:${({ theme }) => theme.colors.primary};
-
+    &[data-widgetbg="invertido"] {
+      opacity:.2;
+    }
+    &[data-externo="sim"]{
+    //filter:saturate(2);
+    }
   }
   p {
     font-size: 14px;
     font-weight: 400;
     line-height: 1;
-    color:rgb(20,20,20);
+    //color:rgb(20,20,20);
+  }
+
+  b{
+    color:${({ theme }) => theme.colors.primary};
   }
 `;
 
@@ -56,6 +64,10 @@ Widget.Header = styled.header`
   background-color: ${({ theme }) => theme.colors.primary};
   &[data-h1bg="invertido"] {
     background-color: ${({ theme }) => theme.colors.primaryInverso};
+  }
+
+  &[data-externo="sim"]{
+    background-color: ${({ theme }) => theme.colors.primary}78;
   }
 
   margin:10px;
@@ -81,6 +93,70 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
+
+  p{
+    &[data-externo="sim"]{
+    color:rgba(255,255,255,.8);
+    }
+  }
 `;
+
+
+Widget.Topic = styled.a`
+  outline: 0;
+  text-decoration: none;
+  color:rgb(235,235,235,.9);
+  background-color: ${({ theme }) => `${theme.colors.primary}4a`};
+
+  &[data-quiz="externo"]{
+  background-color: ${({ theme }) => `${theme.colors.primary}d4`};
+  }
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: ${({ theme }) => theme.Raio};
+  transition: .2s;
+  display: flex;
+
+  align-items:center;
+  position:relative;
+
+
+
+  &:hover,
+  &:focus {
+
+    background-color: ${({ theme }) => `${theme.colors.primary}`};
+    padding-left:25px;
+
+    //color:rgb(20,20,20);
+  }
+
+  &:before {
+    content:'<';
+    position:absolute;
+    color:${({ theme }) => `${theme.colors.secondary}`};
+    right:0;
+    opacity:0;
+    transition:.2s ease;
+  }
+
+  &:hover:before {
+    content:'<';
+    position:absolute;
+    right:10px;
+    opacity:1;
+  }
+
+  
+  &[data-disabled="true"] {
+    opacity:.6;
+    pointer-events:none;
+  }
+
+  
+`;
+
+
 
 export default Widget;

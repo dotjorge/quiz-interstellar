@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import db from '../db.json';
 import Widget from '../src/components/Widget'
 import QuizLogo from '../src/components/QuizLogo'
@@ -7,10 +8,11 @@ import Footer from '../src/components/Footer'
 
 import Botao from '../src/components/Botao'
 
+
 import React, { useState } from "react";
 import { useRouter } from 'next/router';
 
-
+import Link from '../src/components/Link';
 
 export const EntradaFx = styled.div`
   position:relative;
@@ -97,7 +99,6 @@ export default function Home(trocarTema) {
   }, [])
 
   return (
-    <>
       <QuizContainer>
         <QuizLogo />
         <Widget className={'inverter'}>
@@ -106,13 +107,18 @@ export default function Home(trocarTema) {
           </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>
-            <form onSubmit={function (infosDoEvento) {
+            <form 
+            autoComplete="off"
+            onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
               router.push(`/quiz?name=${name}`);
             }}
             >
             <EntradaFx style={{color: placeHolder}}>
-            <Entrada name="nomeUsuario" onChange={function (infosDoEvento) {
+            <Entrada
+            name="nomeUsuario"
+            type="text"
+            onChange={function (infosDoEvento) {
                   console.log(infosDoEvento.target.value);
                   setName(infosDoEvento.target.value);
                 }} onFocus={function(){
@@ -120,9 +126,10 @@ export default function Home(trocarTema) {
             }} onBlur={function(isso){
               if(isso.target.value.length == 0){placeHolderEstado("");}
               console.log(isso.target.value.length);
-            }}/>
+            }}
+            />
             </EntradaFx>
-            <Botao disabled={name.length === 0}>Começar</Botao>
+            <Botao data-seta={'>  '} disabled={name.length === 0}>Começar</Botao>
             </form>
           </Widget.Content>
         </Widget>
@@ -130,13 +137,34 @@ export default function Home(trocarTema) {
         <Widget className={'inverter'}>
           <Widget.Content>
             <h2>Quizes da Galera</h2>
+            
+            <ul>
+              {db.external.map((linkExterno) => {
+                const [projectName, githubUser] = linkExterno
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.');
 
-            <p>Error 404</p>
+                return (
+                  <li key={linkExterno}>
+                    <Widget.Topic
+                      data-quiz={'externo'}
+                      data-disabled={name.length === 0}
+                      as={Link}
+                      href={`/quiz/${projectName}___${githubUser}?name=${name}`}
+                    >
+                      {`${githubUser}/${projectName}dasdas`}
+                    </Widget.Topic>
+                  </li>
+                );
+              })}
+            </ul>
+
           </Widget.Content>
         </Widget>
         <Footer />
       </QuizContainer>
-    </>
   );
 }
 

@@ -31,14 +31,15 @@ export const Botao=styled.button`
   }
 
   &:before {
-    content:'>';
+    content:attr(data-seta);
     opacity:0;
-    margin-right:-10px;
+    margin-right:-28px;
 
-    transition:.2s ease;
+    transition:.3s all ease;
   }
 
   &:hover:before{
+    
     opacity:.5;
     margin-right:5px;
   }

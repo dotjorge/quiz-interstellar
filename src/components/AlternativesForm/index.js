@@ -1,13 +1,15 @@
   
 import styled from 'styled-components';
 
-const AlternativesForm = styled.form`
+const AlternativesFormDiv = styled.form`
   label {
     &[data-selected="true"] {
-      background-color: ${({ theme }) => theme.colors.primaryInverso};
-      color:rgb(20,20,20);
+      background-color: ${({ theme }) => theme.colors.primary};
+      background-color:${props => props.corFundo_};
+      color:white;
       padding-left:25px;
-
+      padding-left:35px;
+      
       &[data-status="SUCCESS"] {
         background-color: ${({ theme }) => theme.colors.success};
       }
@@ -25,4 +27,11 @@ const AlternativesForm = styled.form`
   }
 `;
 
-export default AlternativesForm;
+//export default AlternativesForm;
+export default function AlternativesForm({children,corFundo,...props}){
+  return(
+  <>
+  <AlternativesFormDiv corFundo_={corFundo} {...props}>{children}</AlternativesFormDiv>
+  </>
+  );
+};

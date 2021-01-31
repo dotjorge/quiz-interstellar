@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const WidgetInvertido = styled.div`
+  position:relative;
   transition:2s ease;
   margin-top: 24px;
   margin-bottom: 24px;
@@ -59,7 +60,7 @@ WidgetInvertido.Header = styled.header`
 `;
 
 WidgetInvertido.Content = styled.div`
-
+  position:relative;
   padding: 24px 32px 32px 32px;
   & > *:first-child {
     margin-top: 0;
