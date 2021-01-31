@@ -14,7 +14,7 @@ import { useRouter } from 'next/router';
 
 import Link from '../src/components/Link';
 
-import Entrada from'../src/components/entrada';
+import Entrada from'../src/components/Entrada';
 
 export default function Home(trocarTema) {
   //const [trocarTema, tema] = useState("");

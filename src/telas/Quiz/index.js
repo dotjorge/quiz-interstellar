@@ -11,7 +11,6 @@ import styled from 'styled-components'
 import { useRouter } from 'next/router';
 import Link from 'next/link'
 import BarraLoading from '../../components/BarraLoading'
-import Entrada from'../../components/entrada';
 
 
 export const ResultadoOverlay = styled.div`
