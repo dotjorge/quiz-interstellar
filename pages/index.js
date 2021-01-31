@@ -14,71 +14,15 @@ import { useRouter } from 'next/router';
 
 import Link from '../src/components/Link';
 
-export const EntradaFx = styled.div`
-  position:relative;
-  width:100%;
-  height:40px;
-  display:flex;
-  align-items:center;
-  color:gray;
-
-  &:before {
-    content:'';
-    padding-left:10px;
-    animation-name: digite;
-    animation-duration: 1s;
-    animation-fill-mode:forwards; 
-    animation-direction:normal;//reverse
-    animation-iteration-count:1;
-    animation-timing-function: linear;
-    animation-delay:1s;
-    font-size:14px;
-  }
-
-  @keyframes digite {
-    0% {content:'';}
-    1% {content:'D';}
-    5% {content:'Di';}
-    10% {content:'Dig';}
-    15% {content:'Digi';}
-    20% {content:'Digit';}
-    25% {content:'Digite';}
-    30% {content:'Digite ';}
-    35% {content:'Digite s';}
-    40% {content:'Digite se';}
-    45% {content:'Digite seu';}
-    50% {content:'Digite seu ';}
-    55% {content:'Digite seu n';}
-    60% {content:'Digite seu no';}
-    65% {content:'Digite seu nom';}
-    70% {content:'Digite seu nome';}
-    75% {content:'Digite seu nome.';}
-    70% {content:'Digite seu nome..';}
-    70% {content:'Digite seu nome...';}
-    100% {content:'Digite seu nome...';}
-  }
-
-`;
-
-export const Entrada = styled.input`
-  position:absolute;
-  left:0;
-  top:0;
-  background:rgba(20,20,20,.3);
-  border:none;
-  outline:none;
-  padding:10px;
-  width:100%;
-  height:40px;
-  border-radius:${({ theme }) => theme.Raio2};
-`;
-
+import Entrada from'../src/components/entrada';
 
 export default function Home(trocarTema) {
   //const [trocarTema, tema] = useState("");
 
   const [placeHolder, placeHolderEstado] = useState("");
   const router = useRouter();
+
+
 
   //Faz a variavel trocar em tempo real
   const [name, setName] = React.useState(''); 
@@ -87,6 +31,7 @@ export default function Home(trocarTema) {
   React.useEffect(() => {
     set_document(document);
     //Documento pronto
+
     document.getElementsByClassName('neveScroll')[0].style.opacity='1';
     document.getElementsByClassName('cooper')[0].style.animationName='cooper';
 
@@ -114,8 +59,8 @@ export default function Home(trocarTema) {
               router.push(`/quiz?name=${name}`);
             }}
             >
-            <EntradaFx style={{color: placeHolder}}>
-            <Entrada
+            <Entrada style={{color: placeHolder}}>
+            <Entrada.Input
             name="nomeUsuario"
             type="text"
             onChange={function (infosDoEvento) {
@@ -128,11 +73,13 @@ export default function Home(trocarTema) {
               console.log(isso.target.value.length);
             }}
             />
-            </EntradaFx>
+            </Entrada>
             <Botao data-seta={'>  '} disabled={name.length === 0}>Começar</Botao>
             </form>
           </Widget.Content>
         </Widget>
+
+
 
         <Widget className={'inverter'}>
           <Widget.Content>
@@ -152,9 +99,9 @@ export default function Home(trocarTema) {
                       data-quiz={'externo'}
                       data-disabled={name.length === 0}
                       as={Link}
-                      href={`/quiz/${projectName}___${githubUser}?name=${name}`}
+                      href={`/quiz/${projectName}___${githubUser}?name=${name}?quizAtual=${projectName}___${githubUser}`}
                     >
-                      {`${githubUser}/${projectName}dasdas`}
+                      {`${githubUser}/${projectName}`}
                     </Widget.Topic>
                   </li>
                 );
@@ -163,6 +110,8 @@ export default function Home(trocarTema) {
 
           </Widget.Content>
         </Widget>
+
+
         <Footer />
       </QuizContainer>
   );

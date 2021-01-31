@@ -3,7 +3,10 @@ import styled from 'styled-components';
 export const Botao=styled.button`
   display:block;
   position:relative;
-  background:red;
+  background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),linear-gradient(${({ theme }) => theme.colors.secondary},${({ theme }) => theme.colors.secondary});
+
+  //Escurecer nos quizes dos outros
+
   width:100%;
   height:40px;
   border:none;
@@ -11,10 +14,15 @@ export const Botao=styled.button`
   border-radius:${({ theme }) => theme.Raio2};
   letter-spacing:1px;
   cursor:pointer;
-  font-weight:bold;
-  color:rgba(255,255,255,.9);
-  margin-top:10px;
+  font-weight:900;
 
+
+  color:rgba(255,255,255,.85);
+  //color:${props => props.fundoWidget ? 'rgba(0,0,0,.9)' : ''};
+  
+
+  margin-top:10px;
+  transition:.3s ease;
 
   &:after {
     content:'';
@@ -22,12 +30,16 @@ export const Botao=styled.button`
     left:0;top:0;
     width:100%;
     height:100%;
-    box-shadow:-5px 5px 10px ${({ theme }) => theme.colors.secondary};
+    //box-shadow:-5px 5px 10px ${({ theme }) => theme.colors.secondary};
     opacity:.1;
     border-radius:10px;
-    background:white;
-    transition:.5s ease;
+    //background:white;
+    transition:.3s ease;
     
+  }
+  &:hover:after{
+    opacity:.3;
+    box-shadow:-5px 5px 15px ${({ theme }) => theme.colors.secondary};
   }
 
   &:before {
@@ -44,13 +56,11 @@ export const Botao=styled.button`
     margin-right:5px;
   }
 
-  &:hover:after{
-    opacity:.2;
-  }
+
 
 
   &:disabled{
-    opacity:.8;
+    opacity:.7;
     pointer-events:none;
   }
 

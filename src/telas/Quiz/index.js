@@ -1,22 +1,18 @@
-import React from 'react';
+import React, { useState } from "react";
 //import db from '../../db.json';
 import QuizLogo from '../../components/QuizLogo'
 import QuizContainer from '../../components/QuizContainer'
-
 import Widget from '../../components/Widget'
-
 import LoadWidget from '../../components/loadWidget'
-
 import AlternativesForm from '../../components/AlternativesForm';
 import Botao from '../../components/Botao'
-
 import Footer from '../../components/Footer'
 import styled from 'styled-components'
 import { useRouter } from 'next/router';
 import Link from 'next/link'
-
-
 import BarraLoading from '../../components/BarraLoading'
+import Entrada from'../../components/entrada';
+
 
 export const ResultadoOverlay = styled.div`
   position:absolute;
@@ -57,13 +53,20 @@ export const ResultadoOverlay = styled.div`
 
 function QuizResultado({ results, importarQuestoesDe }) {
   const router = useRouter();
-  const {name} = router.query;
+  let {name} = router.query;
+
+  if(!name){
+  name = 'Sem nome';
+  }
+
+  
 
 
   return (
     <Widget>
       <Widget.Header>
-        <h1>Seu resultado</h1>
+        {/*Por algum motivo tava dando um erro*/}
+        <h1><h3>&#9776;</h3>Seu resultado</h1>
       </Widget.Header>
 
       <Widget.Content>
@@ -87,7 +90,7 @@ function QuizResultado({ results, importarQuestoesDe }) {
             {
             results.filter((x) => x).length  === 1
             ?
-            (<><b>{name}</b>, você acertou uma pergunta</>)
+            (<><b>{name}</b>, você acertou só uma pergunta.</>)
             : 
             ''
             }
@@ -95,7 +98,7 @@ function QuizResultado({ results, importarQuestoesDe }) {
             {
             results.filter((x) => x).length  > 1 && results.filter((x) => x).length  != importarQuestoesDe.length
             ?
-            (<><b>{name}</b>, você acertou {results.filter((x) => x).length} perguntas</>)
+            (<><b>{name}</b>, você acertou {results.filter((x) => x).length} perguntas.</>)
             : 
             ''
             }
@@ -110,6 +113,20 @@ function QuizResultado({ results, importarQuestoesDe }) {
             
           </p>
           <BarraLoading  resultado={'sim'} porcento={(Math.round(results.filter((x) => x).length / results.length * 100))} dataTema={'invertido'} />
+
+          {/*Jogar dnv*/}
+
+          <form 
+            autoComplete="off"
+            onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
+              router.reload();
+            }}
+            >
+            <Botao data-seta={'>  '} disabled={name.length === 0}>Jogar novamente</Botao>
+            </form>
+
+
           <ul>
             {results.map((result, index) => (
               <li style={{width:'100%',display:'flex',color:'rgba(255,255,255,.7)'}} key={`result__${result}`}>
@@ -126,6 +143,15 @@ function QuizResultado({ results, importarQuestoesDe }) {
             ))}
 
           </ul>
+          <form 
+            autoComplete="off"
+            onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
+              router.push(`/`);
+            }}
+            >
+            <Botao data-seta={'<  '} disabled={name.length === 0}>Voltar pro inicio</Botao>
+            </form>
       </Widget.Content>
     </Widget>
   );
@@ -137,6 +163,7 @@ function QuizCorpo({
   totalQuestions,
   onSubmit,
   addResult,
+  fundoWidget,
 }) {
   const router = useRouter();
 
@@ -151,13 +178,14 @@ function QuizCorpo({
 
   const [estadoSeta, permanecerSeta] = React.useState('Sim');
   return (
-    <Widget>
+    <Widget fundoWidget={fundoWidget}>
     <Widget.Header>
       <h1 data-externo={'sim'}>
           <Link href="/">
-              <a style={Voltar}>&#x3c;</a>
+              <a>&#x3c;</a>
           </Link>
-          {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
+          {`Pergunta ${questionIndex + 1}`}
+          <i>/{totalQuestions}</i>
       </h1>
     </Widget.Header>
     <Widget.Content>
@@ -208,7 +236,8 @@ function QuizCorpo({
             {JSON.stringify(question, null, 4)}
           </pre> */}
           <Botao 
-          type="submit" data-seta={estadoSeta} disabled={!hasAlternativeSelected} style={{filter:"invert(1)"}}>
+          fundoWidget={fundoWidget}
+          type="submit" data-seta={estadoSeta} disabled={!hasAlternativeSelected}>
             Confirmar
           </Botao>
 
@@ -221,19 +250,11 @@ function QuizCorpo({
   );
 }
 
-const Voltar = {
-  color:"white",
-  marginLeft:"-10px",
-  padding:"0 10px",
-  fontWeight:"bolder",
-  //padding:"10px",
-  textDecoration:"none",
-  opacity:".6",
-};
 
 
 
-export default function telaQuiz({ importarQuestoesDe, bgExterno}) {
+
+export default function telaQuiz({ importarQuestoesDe, bgExterno,...props}) {
   
   //Troca a tela
   const estadosTela = {
@@ -312,7 +333,8 @@ export default function telaQuiz({ importarQuestoesDe, bgExterno}) {
     <>
     
       <QuizContainer>
-      <div id={'bgExterno'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',background:'pink',backgroundImage:'url('+bgExterno+')',backgroundSize:'cover',backgroundPosition:'center',opacity:'.4',zIndex:'-1'}}></div>
+      {bgExterno !== 'não' &&       <div id={'bgExterno'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',background:'pink',backgroundImage:'url('+bgExterno+')',backgroundSize:'cover',backgroundPosition:'center',opacity:'.4',zIndex:'-1'}}></div>}
+
 
         <QuizLogo />
 
@@ -323,6 +345,7 @@ export default function telaQuiz({ importarQuestoesDe, bgExterno}) {
         totalQuestions={totalQuestions}
         onSubmit={handleSubmitQuiz}
         addResult={addResult}
+        {...props}
         />
         )}
 

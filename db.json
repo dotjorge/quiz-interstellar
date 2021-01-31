@@ -15,26 +15,6 @@
         "Gargantua",
         "Sagittarius A*"
       ]
-    },
-    {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Pergunta 2",
-      "description": "Descrição 2",
-      "answer": 0,
-      "alternatives": [
-         "Alternativa 1",
-         "Alternativa 2"
-      ]
-    },
-    {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Pergunta 3",
-      "description": "Descrição 3",
-      "answer": 0,
-      "alternatives": [
-         "Alternativa 1",
-         "Alternativa 2"
-      ]
     }
   ],
   "external": [
@@ -44,11 +24,8 @@
   "theme": {
     "colors": {
       "primary": "#0d47a1",
-      "primaryInverso": "#f2b85e",
       "secondary": "red",
-      "secondaryInverso": "#00ffff",
       "mainBg": "rgba(216,216,216,.2)",
-      "mainBgInverso": "rgba(39,39,39,.2)",
       "contrastText": "#FFFFFF",
       "wrong": "#FF5722",
       "success": "#4CAF50"
@@ -57,11 +34,11 @@
     "Raio2": "10px",
     "Blur": "8px"
   },
-  "themeDark": {
+  "invertedTheme": {
     "colors": {
-      "primary": "red",
-      "secondary": "red",
-      "mainBg": "red",
+      "primary": "#f2b85e",
+      "secondary": "#00ffff",
+      "mainBg": "rgba(39,39,39,.2)",
       "contrastText": "#FFFFFF",
       "wrong": "#FF5722",
       "success": "#4CAF50"

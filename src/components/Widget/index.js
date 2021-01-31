@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Widget = styled.div`
+const WidgetFundo = styled.div`
 
 
   transition:2s ease;
@@ -10,18 +10,14 @@ const Widget = styled.div`
   background-color: ${({ theme }) => theme.colors.mainBg}bd;
 
 
-
-  &[data-widgetbg="invertido"] {
-    background-color: ${({ theme }) => theme.colors.mainBgInverso};
-  }
-
+  background:${props => props.fundoWidget};
 
   backdrop-filter:blur(${({ theme }) => theme.Blur});
   border-radius: ${({ theme }) => theme.Raio};
   overflow: hidden;
   //box-shadow:-5px 5px 10px rgba(182, 201, 205,.5);
 
-  h1, h2, h3 {
+  h1, h2, h3,h4 {
     font-size: 16px;
     font-weight: 700;
     line-height: 1;
@@ -32,9 +28,44 @@ const Widget = styled.div`
   h1{
     color:rgba(255,255,255,.9);
     &[data-externo="sim"]{
-    color:rgba(10,10,10,.9);
+      color:rgba(255,255,255,.9);
     }
+    	
+    opacity:.85;
+    font-weight:900;
+
+    i{
+      color:rgba(0,0,0,.5);
+    }
+
+    a{
+    color:${({ theme }) => theme.colors.secondary};
+    margin-left:-10px;
+    padding:0 10px;
+    font-weight:bolder;
+    text-decoration:none;
+    opacity:.6;
+    position:relative;
+
+    &:after{
+      opacity:.5;
+      transition:.2s ease;
+      content:'<';
+      position:absolute;
+      left:10px;
+    }
+    &:hover:after{
+      left:0px;
+    }
+    }
+
+    h3{
+      color:${({ theme }) => theme.colors.secondary};
+      margin-right:10px;
+    }
+
   }
+
   h2{
     color:${({ theme }) => theme.colors.primary};
     &[data-widgetbg="invertido"] {
@@ -44,19 +75,25 @@ const Widget = styled.div`
     //filter:saturate(2);
     }
   }
+
   p {
     font-size: 14px;
     font-weight: 400;
     line-height: 1;
-    //color:rgb(20,20,20);
+    color:rgba(20,20,20,.7);
+    &[data-externo="sim"]{
+    color:rgba(255,255,255,.8);
+    }
   }
 
   b{
     color:${({ theme }) => theme.colors.primary};
   }
+
 `;
 
 Widget.Header = styled.header`
+
   display: inline-block;
   //justify-content: flex-start;
   //align-items: center;
@@ -69,6 +106,9 @@ Widget.Header = styled.header`
   &[data-externo="sim"]{
     background-color: ${({ theme }) => theme.colors.primary}78;
   }
+
+
+  background:${props => props.fundoHeader};
 
   margin:10px;
   margin-bottom:-10px;
@@ -94,11 +134,6 @@ Widget.Content = styled.div`
     padding: 0;
   }
 
-  p{
-    &[data-externo="sim"]{
-    color:rgba(255,255,255,.8);
-    }
-  }
 `;
 
 
@@ -129,6 +164,9 @@ Widget.Topic = styled.a`
     background-color: ${({ theme }) => `${theme.colors.primary}`};
     padding-left:25px;
 
+    box-shadow:-5px 5px 15px ${({ theme }) => `${theme.colors.primary}69`};
+
+
     //color:rgb(20,20,20);
   }
 
@@ -157,6 +195,41 @@ Widget.Topic = styled.a`
   
 `;
 
+Widget.Loading = styled.div`
+    position:relative;
+    width:30px;
+    margin-left:-10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:${({ theme }) => theme.colors.secondary};
+   &:after{
+       content:'.';
+       position:absolute;
+    animation-name: rodar;
+    animation-duration: 1s;
+    animation-fill-mode:forwards; 
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+    transform-origin:center;
+    @keyframes rodar {
+        0%{transform:rotate(0deg)}
+        100%{transform:rotate(360deg);}
+    }
+   }
+
+`;
 
 
-export default Widget;
+
+
+export default function Widget({children,...props}){
+  return(
+  <>
+  <WidgetFundo {...props}>
+{children}
+</WidgetFundo>
+  </>
+  );
+};
