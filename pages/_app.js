@@ -67,12 +67,36 @@ export default function App({ Component, pageProps }) {
     </ThemeProvider>
 
     <style jsx global>{`
-
+      .bgExterno{
+        animation-name:bgExterno;
+        animation-duration: 4s;
+        animation-fill-mode: forwards;
+        animation-timing-function:cubic-bezier(0, 0, 0, 1);
+        opacity:0;
+        transform:scale(1.5);
+      }
+      @keyframes bgExterno {
+        0% {opacity:0;transform:scale(1.5);}
+        100% {opacity:1;transform:scale(1);}
+      }
+      .imgQuestao{
+        animation-name:imgQuestao;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+        opacity:0;
+        transform:scale(1.5);
+      }
+      @keyframes imgQuestao {
+        0% {opacity:0;transform:scale(1.5);}
+        100% {opacity:.3;transform:scale(1);}
+      }
       .invertido {
         filter:invert(1);
       }
 
       .space{
+        filter: brightness(.6);
         position:absolute;
         width:100%;
         height:100%;

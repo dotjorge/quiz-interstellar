@@ -41,7 +41,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/4.jpg",
       "title": "Para Cooper, a lei de Murphy significava que:",
       "description": "Também nome de sua filha",
       "answer": 0,
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/5.jpg",
       "title": "O que ainda restava para ser plantado?",
       "description": "Tudo morria por pragas e pela tempestade de areia",
       "answer": 3,
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/6.jpg",
       "title": "Cooper alterou o nível de sinceridade de TARS de 90% para:",
       "description": "Sinceridade absoluta nem sempre é o mais diplomático",
       "answer": 2,
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/7.jpg",
       "title": "O professor John Brand mentiu porque:",
       "description": "A resposta estava na equação da gravidade",
       "answer": 1,
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/8.jpg",
       "title": "Sobra o planeta de Dr. Mann, é correto afirmar que:",
       "description": "O segundo planeta promissor",
       "answer": 2,
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/9.jpg",
       "title": "O Planeta Miller tinha ondas gigantes porque:",
       "description": "23 anos, 4 meses e 8 dias se passaram",
       "answer": 3,
@@ -113,7 +113,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/10.jpg",
       "title": "Uma hora no planeta Miller equivalia a quantos anos na Terra?",
       "description": "A gravidade desacelerando o tempo",
       "answer": 2,
@@ -125,7 +125,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/11.jpg",
       "title": "O buraco de minhoca levou eles para:",
       "description": "Um atalho de duas dimensões que dobra o espaço",
       "answer": 0,
@@ -137,7 +137,7 @@
       ]
     },
     {
-      "image": "",
+      "image": "/12.jpg",
       "title": "Quem construiu o hipercubo?",
       "description": "A gravidade pode se mover no tempo",
       "answer": 1,
@@ -151,8 +151,11 @@
     
   ],
   "external": [
-    "https://aluraquiz-css.omariosouto.vercel.app/",
-    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
+    "https://brunoquiz.brunosaibert.vercel.app/",
+    "https://flash-quiz-next.davidlpc1.vercel.app/",
+    "https://quiz.dgsdev.vercel.app/",
+    "https://naruto-quiz.llofyy.vercel.app/",
+    "https://aluraquiz.matheusjos3.vercel.app/"
   ],
   "theme": {
     "colors": {

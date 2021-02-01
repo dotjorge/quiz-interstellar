@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const WidgetFundo = styled.div`
-
+  position:relative;
 
   transition:2s ease;
   margin-top: 24px;
@@ -165,7 +165,7 @@ Widget.Topic = styled.a`
 
   &:hover,
   &:focus {
-
+    color:white;
     background-color: ${({ theme }) => `${theme.colors.primary}`};
     padding-left:25px;
 
@@ -208,7 +208,7 @@ Widget.Loading = styled.div`
     align-items:center;
     justify-content:center;
 
-    color:${({ theme }) => theme.colors.secondary};
+    color:${({ theme }) => theme.colors.primary};
    &:after{
        content:'.';
        position:absolute;

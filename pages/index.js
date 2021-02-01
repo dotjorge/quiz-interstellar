@@ -44,6 +44,7 @@ export default function Home(trocarTema) {
   }, [])
 
   return (
+    <>
       <QuizContainer>
         <QuizLogo />
         <Widget className={'inverter'}>
@@ -112,8 +113,10 @@ export default function Home(trocarTema) {
         </Widget>
 
 
-        <Footer />
+        
       </QuizContainer>
+      <Footer />
+      </>
   );
 }
 

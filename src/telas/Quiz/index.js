@@ -178,6 +178,22 @@ function QuizCorpo({
   const [estadoSeta, permanecerSeta] = React.useState('Sim');
   return (
     <Widget fundoWidget={fundoWidget}>
+      {question.image !== '' && <img
+        alt={''}
+        style={{
+          position:'absolute',
+          width: '100%',
+          height: '100%',
+          zIndex:'-1',
+          objectFit: 'cover',
+          marginRight:'10px',
+          borderRadius:'10px',
+          filter:'brightness(.5) contrast(.7)'
+        }}
+        src={question.image}
+        className={'imgQuestao'}
+      />}
+      
     <Widget.Header>
       <h1 data-externo={'sim'}>
           <Link href="/">
@@ -188,32 +204,10 @@ function QuizCorpo({
       </h1>
     </Widget.Header>
     <Widget.Content>
-      <div style={{display:'flex',alignItems:'center',marginBottom:'8px'}}>
-    <img
-        alt={question.description}
-        style={{
-          width: '70px',
-          height: '70px',
-          objectFit: 'cover',
-          marginRight:'10px',
-          borderRadius:'10px',
-          opacity:'.8',
-        }}
-        src={question.image}
-      />
-      <span style={{
-    display: 'flex',
-    minHeight: '70px',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    wordBreak: 'break-word',
-      }}>
-      <h2 style={{marginTop:'-2px'}} data-externo={'sim'}>
+      <h2 data-externo={'sim'}>
         {question.title}
       </h2>
-      <p style={{marginBottom:'0px'}}data-externo={'sim'}>"{question.description}"</p>
-      </span>
-      </div>
+      <p data-externo={'sim'}>"{question.description}"</p>
       <AlternativesForm
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
@@ -256,7 +250,6 @@ function QuizCorpo({
             {JSON.stringify(question, null, 4)}
           </pre> */}
           <Botao 
-          style={{marginTop:'8px'}}
           fundoWidget={fundoWidget}
           type="submit" data-seta={estadoSeta} disabled={!hasAlternativeSelected}>
             Confirmar
@@ -364,7 +357,7 @@ export default function telaQuiz({ importarQuestoesDe, bgExterno,tituloQuiz,...p
     <>
     
       <QuizContainer>
-      {bgExterno !== 'não' &&       <div id={'bgExterno'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',background:'pink',backgroundImage:'url('+bgExterno+')',backgroundSize:'cover',backgroundPosition:'center',opacity:'.4',zIndex:'-1'}}></div>}
+      {bgExterno !== 'não' &&       <div style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',overflow:'hidden'}}><div id={'bgExterno'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',backgroundImage:'url('+bgExterno+')',backgroundSize:'cover',backgroundPosition:'center',zIndex:'-1',filter:'brightness(.3) contrast(.8)blur(2px)'}} className={'bgExterno'}></div></div>}
 
 
       <QuizLogo>{tituloQuiz}</QuizLogo>
@@ -388,10 +381,9 @@ export default function telaQuiz({ importarQuestoesDe, bgExterno,tituloQuiz,...p
         {estadoTela === 'RESULT' && <QuizResultado results={results} importarQuestoesDe={importarQuestoesDe} />}
 
 
-        <Footer />
+        
       </QuizContainer>
-
-
+      <Footer />
 
 
     </>
