@@ -160,7 +160,7 @@
   "theme": {
     "colors": {
       "primary": "#0d47a1",
-      "secondary": "red",
+      "secondary": "#ff0000",
       "mainBg": "rgba(216,216,216,.2)",
       "contrastText": "#FFFFFF",
       "wrong": "#FF5722",

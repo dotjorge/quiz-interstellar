@@ -16,6 +16,11 @@ import Link from '../src/components/Link';
 
 import Entrada from'../src/components/Entrada';
 
+
+
+
+
+
 export default function Home(trocarTema) {
   //const [trocarTema, tema] = useState("");
 
@@ -87,16 +92,20 @@ export default function Home(trocarTema) {
             <h2>Quizes da Galera</h2>
             
             <ul>
-              {db.external.map((linkExterno) => {
+              {db.external.map((linkExterno,index) => {
                 const [projectName, githubUser] = linkExterno
                   .replace(/\//g, '')
                   .replace('https:', '')
                   .replace('.vercel.app', '')
                   .split('.');
 
+                  getBg(linkExterno + 'api/db',index);
+                  
+
                 return (
                   <li key={linkExterno}>
                     <Widget.Topic
+                      className={'previewQuiz'} 
                       data-quiz={'externo'}
                       data-disabled={name.length === 0}
                       as={Link}
@@ -121,3 +130,34 @@ export default function Home(trocarTema) {
 }
 
 
+
+
+
+async function getBg(url,index) {
+    try {
+      const dbExterno = await fetch(url)
+        .then((respostaDoServer) => {
+          if (respostaDoServer.ok) {
+            return respostaDoServer.json();
+          }
+          throw new Error('Falha em pegar os dados');
+        })
+        .then((respostaConvertidaEmObjeto) => respostaConvertidaEmObjeto)
+        // .catch((err) => {
+        //   // console.error(err);
+        // });
+  
+       console.log(dbExterno.bg);
+       //alert('teste');
+       
+
+
+       document.getElementsByClassName('previewQuiz')[index].style.background="linear-gradient(to left,#0d47a187,#0d47a1 80%),url('"+dbExterno.bg+"')no-repeat right/80%";
+
+
+    } catch(err) {
+      //throw new Error(err);
+    }
+
+    return 'dkaoskd';
+  }

@@ -149,7 +149,9 @@ Widget.Topic = styled.a`
   background-color: ${({ theme }) => `${theme.colors.primary}4a`};
 
   &[data-quiz="externo"]{
-  background-color: ${({ theme }) => `${theme.colors.primary}d4`};
+  //background-color: ${({ theme }) => `${theme.colors.primary}d4`};
+
+  background:linear-gradient(to left,${({ theme }) => theme.colors.primary}87,${({ theme }) => theme.colors.primary} 80%);
   }
   padding: 10px 15px;
   margin-bottom: 8px;

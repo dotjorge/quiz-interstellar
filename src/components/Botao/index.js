@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const Botao=styled.button`
   display:block;
   position:relative;
-  background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),linear-gradient(${({ theme }) => theme.colors.secondary},${({ theme }) => theme.colors.secondary});
+  background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)),linear-gradient(${({ theme }) => theme.colors.secondary},${({ theme }) => theme.colors.secondary});
+
+  //background:linear-gradient(rgba(20,20,20,.2),rgba(20,20,20,.2)),linear-gradient(to left,${({ theme }) => theme.colors.secondary}87,${({ theme }) => theme.colors.secondary} 70%),url(1.png)no-repeat right/80%;
 
   //Escurecer nos quizes dos outros
 

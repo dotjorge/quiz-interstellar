@@ -59,7 +59,7 @@ Entrada.Input = styled.input`
   position:absolute;
   left:0;
   top:0;
-  background:rgba(20,20,20,.2);
+  background:rgba(20,20,20,.1);
   border:none;
   outline:none;
   padding:10px;
