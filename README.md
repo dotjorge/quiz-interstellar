@@ -3,10 +3,40 @@
 Projeto criado durante a Imersão React 2ª edição: Next.JS da Alura
 
 
-# Projeto rodando na Vercel:
+# Projeto rodando na Vercel
 https://quiz-interstellar.dotjorge.vercel.app/
 
 ![Capa do Projeto](/_docs/screenshot.png)
+
+# Rodar localmente
+Requisitos:
+[Git](https://git-scm.com/),
+[Node.js](https://nodejs.org/en/),
+[VSCode](https://code.visualstudio.com/)
+```
+//Clona o repositório
+$ git clone https://github.com/dotjorge/quiz-interstellar.git
+
+//Entra na pasta do projeto
+$ cd quiz-interstellar
+
+//Abre o projeto no VSCode
+$ code .
+```
+Com o Visual Studio Code aberto aperte `CTRL + SHIFT + "` para abrir o `Terminal`.\
+Rode os comandos:
+```
+//Instala as dependências
+> npm install
+//ou
+> yarn
+
+//Executa a aplicação em modo de desenvolvimento
+> npm run dev
+//Ou no caso de yarn no comando anterior
+> yarn dev
+```
+Projeto rodando localmente em: http://localhost:3000
 
 # Vitrine de Projetos:
 https://aluraquiz-base.alura-challenges.vercel.app/contribuidores
