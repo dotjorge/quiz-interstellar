@@ -14,27 +14,24 @@ Requisitos:
 [Node.js](https://nodejs.org/en/),
 [VSCode](https://code.visualstudio.com/)
 ```
-//Clona o repositório
-$ git clone https://github.com/dotjorge/quiz-interstellar.git
+git clone https://github.com/dotjorge/quiz-interstellar.git
 
-//Entra na pasta do projeto
-$ cd quiz-interstellar
+cd quiz-interstellar
 
-//Abre o projeto no VSCode
-$ code .
+code .
 ```
 Com o Visual Studio Code aberto aperte `CTRL + SHIFT + "` para abrir o `Terminal`.\
 Rode os comandos:
 ```
-//Instala as dependências
-> npm install
-//ou
-> yarn
+npm install
 
-//Executa a aplicação em modo de desenvolvimento
-> npm run dev
-//Ou no caso de yarn no comando anterior
-> yarn dev
+npm run dev
+```
+ou
+```
+yarn
+
+yarn dev
 ```
 Projeto rodando localmente em: http://localhost:3000
 
