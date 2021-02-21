@@ -32,7 +32,7 @@ yarn
 
 yarn dev
 ```
-Projeto rodando localmente em: http://localhost:3000
+Projeto agora rodando localmente em: http://localhost:3000
 
 # Vitrine de Projetos:
 https://aluraquiz-base.alura-challenges.vercel.app/contribuidores
