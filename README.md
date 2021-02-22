@@ -24,7 +24,7 @@ cd quiz-interstellar
 
 code .
 ```
-Com o Visual Studio Code aberto aperte `CTRL + SHIFT + "` para abrir o `Terminal`, e rode os comandos:
+Com o Visual Studio Code aberto aperte `CTRL + SHIFT + "` para abrir o `Terminal`, nele rode os comandos:
 ```
 npm install
 
