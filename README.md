@@ -13,9 +13,9 @@ Requisitos:
 [Git](https://git-scm.com/),
 [Node.js](https://nodejs.org/en/),
 [VSCode](https://code.visualstudio.com/)
-\\
+\
 1. Navegue até a pasta onde deseja armazenar o projeto
-2. Clique com o botão direito do mouse e escolha ´Git Bash Here´
+2. Clique com o botão direito do mouse dentro dela e escolha ´Git Bash Here´
 3. Execute os seguintes comandos na janela console que abriu:
 ```
 git clone https://github.com/dotjorge/quiz-interstellar.git
