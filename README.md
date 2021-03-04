@@ -1,6 +1,7 @@
 # AluraQuiz - Intestellar
 
-Projeto criado durante a Imersão React 2ª edição: Next.JS da Alura
+Um quiz feito em Next.js com o uso do Styled Components para estilizar os componentes. Cada quiz contém uma API que permite outros quizes importarem as perguntas um dos outros, que ficam armazenadas em um arquivo .json.
+Criado durante a Imersão React 2ª edição: Next.JS da Alura
 
 
 # Projeto rodando na Vercel
