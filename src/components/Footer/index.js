@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 // src/components/Footer/index.js
 const FooterWrapper = styled.footer`
-  z-index:5;
+  z-index:20;
   padding: 20px;
   display: flex;
   align-items: center;
