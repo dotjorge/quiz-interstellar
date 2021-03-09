@@ -21,6 +21,7 @@ import Entrada from'../src/components/Entrada';
 
 
 
+
 export default function Home(trocarTema) {
   //const [trocarTema, tema] = useState("");
 

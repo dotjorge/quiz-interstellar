@@ -355,10 +355,9 @@ export default function telaQuiz({ importarQuestoesDe, bgExterno,tituloQuiz,...p
 
   return (
     <>
-    
-      <QuizContainer>
-      {bgExterno !== 'não' &&       <div style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',overflow:'hidden'}}><div id={'bgExterno'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',backgroundImage:'url('+bgExterno+')',backgroundSize:'cover',backgroundPosition:'center',zIndex:'-1',filter:'brightness(.3) contrast(.8)blur(2px)'}} className={'bgExterno'}></div></div>}
+      {bgExterno !== 'não' && <div style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',overflow:'hidden'}}><div id={'bgExterno'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',backgroundImage:'url('+bgExterno+')',backgroundSize:'cover',backgroundPosition:'center',zIndex:'-1',filter:'brightness(.3) contrast(.8)blur(2px)'}} className={'bgExterno'}></div></div>}
 
+      <QuizContainer>
 
       <QuizLogo>{tituloQuiz}</QuizLogo>
 
