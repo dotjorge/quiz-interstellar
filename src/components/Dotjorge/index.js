@@ -145,6 +145,10 @@ const Botao = styled.button`
         margin-right:4px;
         opacity:1;
     }
+
+    b{
+        margin-left:8px;
+    }
     
 `
 
@@ -163,7 +167,7 @@ export default function Dotjorge({...props}){
                             <b>Discord</b>
                         </Botao>
                     </a>
-                    <a href="https://github.com/dotjorge/healthy-task" target="_blank">
+                    <a href="https://github.com/dotjorge/quiz-interstellar" target="_blank">
                         <Botao data-tipo="github">
                            <img src="icons/github.png" width="auto" height="12px"/>
                             Project on <b>GitHub</b>
