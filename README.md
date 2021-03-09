@@ -1,12 +1,43 @@
 # AluraQuiz - Intestellar
 
-Projeto criado durante a Imersão React 2ª edição: Next.JS da Alura
+Um quiz feito em Next.js com o uso do Styled Components para estilizar os componentes. Cada quiz contém uma API que permite outros quizes importarem as perguntas um dos outros, que ficam armazenadas em um arquivo .json.
+Criado durante a Imersão React 2ª edição: Next.JS da Alura.
 
 
-# Projeto rodando na Vercel:
+# Projeto rodando na Vercel
 https://quiz-interstellar.dotjorge.vercel.app/
 
 ![Capa do Projeto](/_docs/screenshot.png)
+
+# Rodar localmente
+Requisitos:
+[Git](https://git-scm.com/),
+[Node.js](https://nodejs.org/en/),
+[VSCode](https://code.visualstudio.com/)
+
+1. Navegue até a pasta onde deseja armazenar o projeto
+2. Clique com o botão direito do mouse dentro dela e escolha `Git Bash Here`
+3. Execute os seguintes comandos na janela console que abriu:
+```
+git clone https://github.com/dotjorge/quiz-interstellar.git
+
+cd quiz-interstellar
+
+code .
+```
+Com o Visual Studio Code aberto aperte `CTRL + SHIFT + "` para abrir o `Terminal`, nele rode os comandos:
+```
+npm install
+
+npm run dev
+```
+ou
+```
+yarn
+
+yarn dev
+```
+Projeto agora rodando localmente em: http://localhost:3000
 
 # Vitrine de Projetos:
 https://aluraquiz-base.alura-challenges.vercel.app/contribuidores
