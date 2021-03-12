@@ -5,7 +5,7 @@ const Fundo = styled.div`
     //Variaveis
     --fundo:rgba(205, 220, 221, .4);
     --texto:black;
-
+    font-family:Roboto;
     z-index:10;
     transition:2s ease filter;
     width:100%;
@@ -33,7 +33,7 @@ const Fundo = styled.div`
         width:100%;
         max-width:1024px;
         display:flex;
-
+        align-items:center;
         opacity:.7;
         
         & > span{
@@ -166,13 +166,13 @@ export default function Dotjorge({...props}){
                     <span> | </span>
                     <a href="https://discord.gg/wuQEusnJz2" target="_blank">
                         <Botao>
-                            <img src="icons/discord.png" width="auto" height="12px"/>
+                            <img src="icons/discord.png" width="auto" height="11px"/>
                             <b>Discord</b>
                         </Botao>
                     </a>
                     <a href="https://github.com/dotjorge/quiz-interstellar" target="_blank">
                         <Botao data-tipo="github">
-                           <img src="icons/github.png" width="auto" height="12px"/>
+                           <img src="icons/github.png" width="auto" height="11px"/>
                             <i>Project on</i><b>GitHub</b>
                         </Botao>
                     </a>
