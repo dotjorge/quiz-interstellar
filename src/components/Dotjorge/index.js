@@ -2,18 +2,22 @@ import styled from 'styled-components'
 
 
 const Fundo = styled.div`
+    //Variaveis
+    --fundo:rgba(205, 220, 221, .4);
+    --texto:black;
+
     z-index:10;
     transition:2s ease filter;
     width:100%;
     position:relative;
-    background:rgba(205, 220, 221, .4);
+    background:var(--fundo);
     backdrop-filter:blur(5px);
     display:flex;
     justify-content:center;
     align-items:center;
     height:40px;
     padding:0 10px;
-    color:black;
+    color:var(--texto);
 
     &:before{
         content:'';
@@ -84,9 +88,7 @@ const Logo = styled.div`
 
 const Botao = styled.button`
     font-family:monospace;
-    color:black;
     background:rgba(0,0,0,0);
-    border:1px solid black;
     border:none;
     outline:none;
     border-radius:5px;
@@ -146,8 +148,9 @@ const Botao = styled.button`
         opacity:1;
     }
 
-    b{
-        margin-left:8px;
+    i{
+        font-style:normal;
+        margin-right:8px;
     }
     
 `
@@ -170,7 +173,7 @@ export default function Dotjorge({...props}){
                     <a href="https://github.com/dotjorge/quiz-interstellar" target="_blank">
                         <Botao data-tipo="github">
                            <img src="icons/github.png" width="auto" height="12px"/>
-                            Project on <b>GitHub</b>
+                            <i>Project on</i><b>GitHub</b>
                         </Botao>
                     </a>
                 </div>
